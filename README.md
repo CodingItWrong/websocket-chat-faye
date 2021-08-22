@@ -1,4 +1,4 @@
-# websocket-chat-faye
+# websocket-echo-faye
 
 A simple WebSocket echo server using Ruby and `faye-websocket`.
 
