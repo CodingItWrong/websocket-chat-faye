@@ -3,10 +3,11 @@ require 'faye/websocket'
 App = lambda do |env|
   if Faye::WebSocket.websocket?(env)
     ws = Faye::WebSocket.new(env)
+    ws.send('Connected to Faye')
 
     ws.on :message do |event|
-      puts "received WS message with ruby!!1! #{event.data}"
-      ws.send("Echo back from server #{event.data}")
+      puts "Faye received: #{event.data}"
+      ws.send("Response from Faye: #{event.data}")
     end
 
     ws.on :close do |event|
